@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message Toast</title>
+</head>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #121212;
+    font-family: sans-serif;
+  }
+
+
+  button#toast-button {
+    font-family: sans-serif;
+    color: #fff;
+    background: coral;
+    padding: 1.2rem 2.4rem;
+    border-radius: 0.2rem;
+    font-size: 1.2rem;
+    transition: opacity 0.2s;
+  }
+
+  button#toast-button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+
+  #message {
+    color: #fff;
+    background: coral;
+    padding: 1.2rem 2.4rem;
+    border-radius: 0.2rem;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
+    top: -8rem;
+    position: fixed;
+    transition: top 0.4s ease;
+  }
+
+  #message.show {
+    top: 2rem;
+  }
+</style>
+
+<body>
+  <button id="toast-button">
+    Exibir Message
+  </button>
+
+  <div id="message">
+    Siga <b>@developerdavicruz</b>
+  </div>
+</body>
+<script>
+  const button = document.getElementById("toast-button");
+  const toast = document.getElementById("message");
+  button.addEventListener("click", () => {
+    toast.classList.add("show");
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 2000);
+  })
+</script>
+
+</html>
